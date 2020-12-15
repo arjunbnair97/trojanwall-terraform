@@ -4,6 +4,7 @@
     sudo yum install vim -y
     sudo useradd ansadmin # Edit the user name that is required
     echo zzn3qc^Fefcz | passwd ansadmin --stdin # Edit the user password that is required
+    sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\\PasswordAuthentication yes" /etc/ssh/sshd_config
     sudo service sshd restart
     sudo yum install python3.8 -y
     sudo yum install python3-pip -y
