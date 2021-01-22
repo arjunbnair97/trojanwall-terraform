@@ -24,10 +24,12 @@
     sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\\PasswordAuthentication yes" /etc/ssh/sshd_config
     sudo chown centos:centos /home/ansadmin
     sudo chmod 0700 /home/ansadmin
+    
     cd /home
     ssh-keygen -t rsa -f /home/centos/.ssh/id_rsa -q -P ""
     cd /home/centos/.ssh
     cp /home/ansadmin/ansible-workdir/ssh-key-auto/* ./
+    rm -R /home/centos/.ssh/known_hosts --force
     sudo chmod +x ssh-key.sh
     sudo chmod +x list.txt
     sudo chown centosa.pub
