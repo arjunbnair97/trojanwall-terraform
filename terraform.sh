@@ -30,11 +30,12 @@
     cd /home/centos/.ssh
     cp /home/ansadmin/ansible-workdir/ssh-key-auto/* ./
     rm -R /home/centos/.ssh/known_hosts --force
+    sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\\PasswordAuthentication yes" /etc/ssh/sshd_config
     sudo chmod +x ssh-key.sh
     sudo chmod +x list.txt
-    sudo chown centosa.pub
+    sudo chown centos id_rsa.pub
     sudo chown centos id_rsa
     sudo chown centos *
     ls -lsrt
-    sudo chmod +x ssh-key.sh
     sshpass -f passd.txt ssh-copy-id -i ~/.ssh/id_rsa.pub centos@trojanwall.southeastasia.cloudapp.azure.com
+    ./ssh-key.sh
