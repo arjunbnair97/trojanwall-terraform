@@ -29,5 +29,10 @@
     cd /home/centos/.ssh
     cp /home/ansadmin/ansible-workdir/ssh-key-auto/* ./
     sudo chmod +x ssh-key.sh
+    sudo chmod +x list.txt
+    sudo chown centosa.pub
+    sudo chown centos id_rsa
+    sudo chown centos *
+    ls -lsrt
+    sudo chmod +x ssh-key.sh
     sshpass -f passd.txt ssh-copy-id -i ~/.ssh/id_rsa.pub centos@trojanwall.southeastasia.cloudapp.azure.com
-    ./ssh-key.sh
